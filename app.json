@@ -1,30 +1,59 @@
 {
   "expo": {
-    "name": "change.me",
-    "slug": "change.me",
+    "name": "ChangeMe",
+    "slug": "changeme",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFFAF5"
     },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.changeme.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "ChangeMe utilise votre position pour afficher les espaces de change à proximité.",
+        "NSLocationAlwaysUsageDescription": "ChangeMe utilise votre position pour afficher les espaces de change à proximité.",
+        "NSCameraUsageDescription": "ChangeMe utilise la caméra pour ajouter des photos des espaces de change.",
+        "NSPhotoLibraryUsageDescription": "ChangeMe accède à votre galerie pour ajouter des photos des espaces de change."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFAF5"
       },
-      "predictiveBackGestureEnabled": false
+      "package": "com.changeme.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "ChangeMe utilise votre position pour afficher les espaces de change à proximité."
+        }
+      ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsDownloadToken": "YOUR_MAPBOX_SECRET_TOKEN"
+        }
+      ]
+    ],
+    "scheme": "changeme",
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
